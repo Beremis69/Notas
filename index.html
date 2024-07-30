@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Notas</title>
+</head>
+<body>
+	<h1>Ingrese los datos</h1>
+	<label for="N1">Nota 1:</label>
+	<input type="number" id="N1" name="N1">
+	<label for="N2">Nota 2:</label>
+	<input type="number" id="N2" name="N2">
+	<label for="N3">Nota 3:</label>
+	<input type="number" id="N3" name="N3">
+    <label for="N4">Nota 4:</label>
+    <input type="number" id="N4" name="N4">
+    <button type="button" onclick="tr()">Calcular</button>
+    <button type="button" onclick="sr()">Regresar al menú principal</button>
+    <h1>Resultados</h1>
+    <p><span id="X1"></span></p>
+    <p><span id="X2"></span></p>
+    <p><span id="X3"></span></p>
+    <p><span id="X4"></span></p>
+    <p><span id="X5"></span></p>
+    <p><span id="X6"></span></p>
+
+<script>
+	function tr() {
+		const A = parseFloat(document.getElementById('N1').value);
+		const B = parseFloat(document.getElementById('N2').value);
+		const C = parseFloat(document.getElementById('N3').value);
+		const D = parseFloat(document.getElementById('N4').value);
+		const R1 = A + B + C + D;
+		const R2 = R1 / 4;
+		document.getElementById("X1").textContent = "Promedio: " + R2.toFixed(2);
+		document.getElementById("X2").textContent = "Total: " + R1.toFixed(2);
+
+		const highest = Math.max(A, B, C, D);
+		const lowest = Math.min(A, B, C, D);
+
+		document.getElementById("X3").textContent = "Nota más alta: " + highest.toFixed(2);
+		document.getElementById("X4").textContent = "Nota más baja: " + lowest.toFixed(2);
+
+		if (R2 >= 60) {
+			document.getElementById("X6").textContent = "Felicidades, has aprobado...!!";
+		} else {
+			document.getElementById("X6").textContent = "Lamentablemente has reprobado.";
+		}
+    }
+
+    function sr() {
+    	window.location.href = "https://beremis69.github.io/Proyecto.html/";
+    }
+</script>
+</body>
+</html>
